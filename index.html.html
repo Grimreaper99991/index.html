@@ -1,0 +1,176 @@
+import os
+
+def create_orion_website():
+    html_content = """
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORION.Ai | Revolutions-Recycling</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header mit Logo */
+        header {
+            background: #fff;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #000;
+        }
+
+        .logo span { color: #0056b3; }
+
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: #0056b3; }
+
+        /* Hero Sektion */
+        .hero {
+            background: linear-gradient(180deg, #fff 0%, #e1eefb 100%);
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #0056b3;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .btn-main {
+            background: #0056b3;
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,86,179,0.3);
+            transition: 0.3s;
+        }
+
+        .btn-main:hover { background: #004494; transform: translateY(-2px); }
+
+        /* Feature Grid */
+        .features {
+            padding: 80px 10%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: -50px;
+        }
+
+        .feature-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 5px solid #0056b3;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover { transform: translateY(-10px); }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: #0056b3;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0056b3;
+            color: #fff;
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 900px) {
+            .features { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">ORION<span>.Ai</span></div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Revolutionäres Recycling mit KI</h1>
+        <p>ORION Intelligence Systems transformiert die Abfallwirtschaft durch Präzisionsanalyse und innovative Konzepte.</p>
+        <a href="#" class="btn-main">Jetzt mehr erfahren</a>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <h3>Datengetriebene Analyse</h3>
+            <p>Echtzeit-Auswertung Ihrer Wertstoffströme mit v27 Kerntechnologie.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Nachhaltige Strategien</h3>
+            <p>Maximale CO2-Reduktion durch intelligente Wiederverwertungsprozesse.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Zukunftstechnologie</h3>
+            <p>Modular aufbaubare Systeme für industrielle Recycling-Anlagen.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 ORION Intelligence Systems | Ein Unternehmen der Zukunft
+    </footer>
+
+</body>
+</html>
+    """
+    
+    with open("index.html", "w", encoding="utf-8") as f:
+        f.write(html_content)
+    
+    print("Webseite erfolgreich erstellt: index.html")
+
+if __name__ == "__main__":
+    create_orion_website()
