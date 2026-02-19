@@ -3,109 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORION.Ai | Business Intelligence v27</title>
+    <title>ORION.Ai | High-End Recycling Intelligence</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #f4f7f9; color: #333; line-height: 1.6; }
+        body { font-family: 'Inter', sans-serif; background-color: #f4f7f9; color: #333; scroll-behavior: smooth; }
 
-        /* Navigation & Hero */
         header { background: #fff; padding: 20px 10%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 1.8rem; font-weight: 800; color: #000; }
         .logo span { color: #0056b3; }
-        nav a { margin-left: 30px; text-decoration: none; color: #555; font-weight: 600; font-size: 0.9rem; }
-        .hero { background: linear-gradient(180deg, #fff 0%, #e1eefb 100%); padding: 80px 10% 120px; text-align: center; }
-        .hero h1 { font-size: 3rem; color: #0056b3; font-weight: 800; }
+        nav a { margin-left: 30px; text-decoration: none; color: #555; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: #0056b3; }
 
-        /* Scanner Module */
+        .hero { background: linear-gradient(180deg, #fff 0%, #e1eefb 100%); padding: 80px 10% 100px; text-align: center; }
+        .hero h1 { font-size: 3.5rem; color: #0056b3; font-weight: 800; margin-bottom: 20px; }
+
+        /* Scanner */
         .analyzer-section { padding: 40px 10%; margin-top: -60px; }
         .analyzer-container { background: #fff; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .input-group { background: #f8f9fa; padding: 30px; border-radius: 15px; }
+        .input-group { background: #f8f9fa; padding: 30px; border-radius: 15px; border: 1px solid #e1eefb; }
         .result-group { background: linear-gradient(135deg, #0056b3 0%, #003d82 100%); padding: 40px; border-radius: 15px; color: #fff; text-align: center; }
         
         input[type=range] { width: 100%; margin: 15px 0; accent-color: #0056b3; cursor: pointer; }
-        select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 20px; }
+        select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 20px; font-size: 1rem; }
 
-        .btn-cert { width: 100%; margin-top: 25px; background: #fff; color: #0056b3; border: none; padding: 15px; border-radius: 8px; font-weight: 800; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
-        .btn-cert:hover { background: #e1eefb; transform: scale(1.02); }
+        /* Pricing Table */
+        .pricing-section { padding: 80px 10%; background: #fff; text-align: center; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .price-card { padding: 40px; border-radius: 20px; border: 1px solid #eee; transition: 0.3s; background: #fcfcfc; }
+        .price-card.featured { border: 2px solid #0056b3; transform: scale(1.05); background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .price-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .price-card .amount { font-size: 2.5rem; font-weight: 800; color: #0056b3; margin-bottom: 20px; }
+        .price-card ul { list-style: none; margin-bottom: 30px; text-align: left; font-size: 0.9rem; }
+        .price-card ul li { margin-bottom: 10px; }
+        .price-card ul li::before { content: "✓"; color: #0056b3; margin-right: 10px; font-weight: bold; }
 
-        footer { background: #0056b3; color: #fff; text-align: center; padding: 30px; font-size: 0.8rem; margin-top: 50px; }
+        .btn-price { display: block; padding: 15px; border-radius: 8px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .btn-blue { background: #0056b3; color: #fff; }
+        .btn-outline { border: 2px solid #0056b3; color: #0056b3; }
 
-        /* ZERTIFIKAT STYLE (Hidden on screen, shown on print) */
-        #certificate { display: none; padding: 50px; border: 15px solid #0056b3; background: #fff; color: #000; width: 800px; margin: 0 auto; position: relative; }
-        @media print {
-            body * { display: none; }
-            #certificate { display: block !important; }
-            #certificate * { display: block; }
-        }
+        /* Hidden Cert */
+        #certificate { display: none; padding: 50px; border: 15px solid #0056b3; background: #fff; color: #000; width: 800px; margin: 0 auto; }
+        @media print { body * { display: none; } #certificate { display: block !important; } }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">ORION<span>.Ai</span></div>
-        <nav><a href="#analyzer">Scanner</a><a href="#">v27 Core</a><a href="#">Auth-x</a></nav>
+        <nav>
+            <a href="#analyzer">Scanner</a>
+            <a href="#pricing">Preise</a>
+            <a href="#">v27 Core</a>
+        </nav>
     </header>
 
     <section class="hero">
-        <h1>Intelligence Systems v27</h1>
-        <p>Die Zukunft der Materialwirtschaft beginnt hier.</p>
+        <h1>ORION v27 Intelligence</h1>
+        <p>Maximale Transparenz für Ihre Materialströme.</p>
     </section>
 
     <section class="analyzer-section" id="analyzer">
         <div class="analyzer-container">
             <div class="input-group">
-                <h2 style="color: #0056b3; margin-bottom: 20px;">Profit & Material Analyse</h2>
+                <h2 style="color: #0056b3; margin-bottom: 20px;">Live Profit Scanner</h2>
                 <label>Material:</label>
                 <select id="materialType">
                     <option value="8500">Kupfer (Millberry)</option>
                     <option value="1800">Aluminium</option>
-                    <option value="450">Kunststoffe</option>
-                    <option value="1200">E-Schrott</option>
+                    <option value="450">Kunststoffe (PE/PP)</option>
+                    <option value="1200">E-Schrott Mix</option>
                 </select>
                 <label>Menge: <span id="tonLabel" style="font-weight: 800;">50</span> t</label>
                 <input type="range" id="tonRange" min="1" max="500" value="50">
-                <label>Reinheit: <span id="pureLabel" style="font-weight: 800;">85</span>%</label>
+                <label>KI-Reinheit: <span id="pureLabel" style="font-weight: 800;">85</span>%</label>
                 <input type="range" id="pureRange" min="1" max="100" value="85">
             </div>
-
             <div class="result-group">
                 <h3>Potenzieller Marktwert</h3>
                 <div style="font-size: 3.5rem; font-weight: 800; margin: 15px 0;" id="profitDisplay">0 CHF</div>
-                <p style="opacity: 0.7; margin-bottom: 20px;">Verifiziert durch ORION v27 Algorithmus</p>
-                <button onclick="printCert()" class="btn-cert">Audit-Zertifikat generieren</button>
+                <p style="opacity: 0.7; margin-bottom: 30px;">Algorithmus: v27 Business Logic</p>
+                <button onclick="printCert()" style="width:100%; padding:15px; border-radius:8px; border:none; background:#fff; color:#0056b3; font-weight:800; cursor:pointer;">Audit-Zertifikat drucken</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section" id="pricing">
+        <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Wählen Sie Ihren v27 Plan</h2>
+        <p style="color: #666;">Skalierbare Intelligenz für jedes Unternehmen.</p>
+        
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Explorer</h3>
+                <div class="amount">0 CHF</div>
+                <ul>
+                    <li>Limitierte Scanner-Nutzung</li>
+                    <li>Kein Zertifikats-Download</li>
+                    <li>Standard Marktpreise</li>
+                </ul>
+                <a href="#analyzer" class="btn-price btn-outline">Kostenlos testen</a>
+            </div>
+
+            <div class="price-card featured">
+                <div style="background:#0056b3; color:#fff; font-size:0.7rem; padding:5px; border-radius:5px; display:inline-block; margin-bottom:10px;">EMPFEHLUNG (BETA)</div>
+                <h3>Business Partner</h3>
+                <div class="amount">150 CHF <span style="font-size:1rem; color:#666;">/ mtl.</span></div>
+                <p style="font-size:0.8rem; margin-bottom:20px;">+ 500 CHF Setup (einmalig)</p>
+                <ul>
+                    <li>Unlimitierte Audits & Berichte</li>
+                    <li>Personalisiertes Branding</li>
+                    <li>Auth-x Security Integration</li>
+                    <li>24/7 v27 Support</li>
+                </ul>
+                <a href="mailto:deine-email@beispiel.ch" class="btn-price btn-blue">Partner werden</a>
+            </div>
+
+            <div class="price-card">
+                <h3>Profi-Liga</h3>
+                <div class="amount">Custom</div>
+                <ul>
+                    <li>Vollständige KI-Integration</li>
+                    <li>Beteiligungs-Modell (Shared Profit)</li>
+                    <li>Eigene Hardware-Schnittstellen</li>
+                    <li>Unbegrenzte Standorte</li>
+                </ul>
+                <a href="mailto:deine-email@beispiel.ch" class="btn-price btn-outline">Kontakt aufnehmen</a>
             </div>
         </div>
     </section>
 
     <div id="certificate">
-        <div style="text-align: center; border-bottom: 2px solid #0056b3; padding-bottom: 20px;">
-            <h1 style="font-size: 2.5rem;">ORION Intelligence Systems</h1>
-            <p style="text-transform: uppercase; letter-spacing: 2px;">Offizielles Wertstoff-Audit | v27 Core</p>
-        </div>
-        <div style="margin: 50px 0;">
-            <p style="font-size: 1.2rem; margin-bottom: 20px;">Hiermit wird bescheinigt, dass die Materialanalyse für folgendes Volumen durchgeführt wurde:</p>
-            <table style="width: 100%; font-size: 1.5rem; border-collapse: collapse;">
-                <tr><td style="padding: 10px; border-bottom: 1px solid #eee;">Material:</td><td style="padding: 10px; border-bottom: 1px solid #eee;"><strong id="certMat">-</strong></td></tr>
-                <tr><td style="padding: 10px; border-bottom: 1px solid #eee;">Menge:</td><td style="padding: 10px; border-bottom: 1px solid #eee;"><strong id="certTon">-</strong></td></tr>
-                <tr><td style="padding: 10px; border-bottom: 1px solid #eee;">Reinheitsgrad:</td><td style="padding: 10px; border-bottom: 1px solid #eee;"><strong id="certPure">-</strong></td></tr>
-                <tr style="color: #0056b3;"><td style="padding: 10px;">Marktwert-Potenzial:</td><td style="padding: 10px;"><strong id="certPrice">-</strong></td></tr>
-            </table>
-        </div>
-        <div style="margin-top: 100px; display: flex; justify-content: space-between; align-items: flex-end;">
-            <div>
-                <p style="font-family: 'Courier New', monospace; font-size: 0.8rem;">Master-Code: Auth-x / Asimov-5-Law Enabled</p>
-                <p style="font-size: 0.9rem;">Datum der Analyse: <span id="certDate"></span></p>
-            </div>
-            <div style="text-align: center; border-top: 1px solid #000; width: 250px;">
-                <p style="font-size: 0.8rem; margin-top: 5px;">ORION v27 Validierungssiegel</p>
-            </div>
-        </div>
+        <h1 style="text-align:center;">ORION v27 Audit-Report</h1>
+        <hr><br>
+        <p>Material: <strong id="certMat"></strong></p>
+        <p>Menge: <strong id="certTon"></strong></p>
+        <p>Reinheit: <strong id="certPure"></strong></p>
+        <p>Wert: <strong id="certPrice"></strong></p>
+        <br><hr>
+        <p style="font-size:0.8rem;">Auth-x Verified | Asimov 5 Law System | Datum: <span id="certDate"></span></p>
     </div>
 
     <footer>
-        <p>&copy; 2026 ORION Intelligence Systems | Auth-x Master Code</p>
+        <p>&copy; 2026 ORION Intelligence Systems | v27 Business Foundation</p>
     </footer>
 
     <script>
@@ -119,21 +158,17 @@
             const tons = parseInt(tonRange.value);
             const purity = parseInt(pureRange.value) / 100;
             const total = price * tons * purity;
-
             profitDisplay.innerText = Math.round(total).toLocaleString('de-CH') + ' CHF';
             document.getElementById('tonLabel').innerText = tons;
             document.getElementById('pureLabel').innerText = Math.round(purity * 100);
         }
 
         function printCert() {
-            // Daten ins Zertifikat übertragen
             document.getElementById('certMat').innerText = matSelect.options[matSelect.selectedIndex].text;
-            document.getElementById('certTon').innerText = tonRange.value + " Tonnen";
-            document.getElementById('certPure').innerText = pureRange.value + "%";
+            document.getElementById('certTon').innerText = tonRange.value + " t";
+            document.getElementById('certPure').innerText = pureRange.value + " %";
             document.getElementById('certPrice').innerText = profitDisplay.innerText;
             document.getElementById('certDate').innerText = new Date().toLocaleDateString('de-CH');
-            
-            // Drucken auslösen
             window.print();
         }
 
